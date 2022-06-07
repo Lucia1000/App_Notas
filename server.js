@@ -12,7 +12,7 @@ const {
   registerUser,
   activateUser,
   loginUser,
-} = require("./controllers/users"); //Coje el index por defecto
+} = require("./controllers/users"); //Coge el index por defecto
 
 const {
   getNotes,
@@ -27,7 +27,7 @@ app.use(morgan("dev"));
 
 // //Endpoints usuarios
 app.post("/users", registerUser);
-app.get("/users/activate/:registrationCode", activateUser); //ambio el put por el get(pequeña trampa para q lleque activar al correo)
+app.get("/users/activate/:registrationCode", activateUser); //cambio el put por el get(pequeña trampa para q lleque activar al correo)
 app.post("/login", loginUser);
 
 // //Endpoints notes

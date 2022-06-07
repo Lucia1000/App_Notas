@@ -9,6 +9,7 @@ const createNote = async (req, res, next) => {
     const { title, text, category } = req.body;
 
     const insertId = await insertNote({ title, text, category, userId });
+    console.log(insertId);
 
     res.status(201).send({
       status: "ok",

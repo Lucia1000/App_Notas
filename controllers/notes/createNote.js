@@ -1,4 +1,5 @@
 const { insertNote } = require("../../repositories/notes");
+const uploadImage = require("../../helpers/uploadFile");
 
 const createNote = async (req, res, next) => {
   try {
@@ -6,14 +7,23 @@ const createNote = async (req, res, next) => {
 
     const userId = req.auth.id; //trae el req.auth(objeto del tokenInfo).id(el id q hay dentro del objeto tokenInfo), q es el id del usuario
 
-    const { title, text, category } = req.body;
+    const { title, text, category, status } = req.body;
+    const { image } = req.files;
 
-    const insertId = await insertNote({ title, text, category, userId });
-    console.log(insertId);
+    const imageName = await uploadImage(image.data);
+
+    const insertId = await insertNote({
+      title,
+      text,
+      category,
+      status,
+      imageName,
+      userId,
+    });
 
     res.status(201).send({
       status: "ok",
-      data: { id: insertId, title, text, category, userId },
+      data: { id: insertId, title, text, category, status, imageName, userId },
     });
   } catch (error) {
     next(error);

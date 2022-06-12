@@ -1,6 +1,6 @@
 const validateAuth = require("./validateAuth");
-const checkAdmin = require("./checkAdmin");
 const notFound = require("./notFound");
 const handleError = require("./handleError");
+const checkPublic = require("./checkPublic");
 
-module.exports = { validateAuth, notFound, handleError };
+module.exports = { validateAuth, checkPublic, notFound, handleError };

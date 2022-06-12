@@ -20,7 +20,7 @@ const validateAuth = async (req, res, next) => {
 
     req.auth = tokenInfo; //en la req voy a meter una propiedad auth , donde meto la info del token.(id,role,cuando se creo y cuando expira)
 
-    next(); //pasa al controller q va después (en el server)
+    next(); //pasa al controller q va despues (en el server)
   } catch (error) {
     next(error); //va al siguiente error con los parámetros(error,req,res,next)
   }

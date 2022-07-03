@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c4b8737-34cd-47f6-a3fc-046dbf2aca94",
+		"_postman_id": "1b361f0f-b724-43ae-adf0-9aad418fd707",
 		"name": "notas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21147127"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"miguel@email.com\",\r\n    \"password\":\"0123\",\r\n    \"role\":\"normal\",\r\n    \"name\":\"Miguel\"\r\n}",
+					"raw": "{\r\n    \"email\":\"tajibi1045@kahase.com\",\r\n    \"password\":\"0123\",\r\n    \"name\":\"Miguel\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"mellamolucia@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"normal\",\r\n    \"name\":\"Lucía\"\r\n}",
+					"raw": "{\r\n    \"email\":\"tajibi1045@kahase.com\",\r\n    \"password\":\"0123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

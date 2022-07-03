@@ -1,11 +1,14 @@
 const { insertNote } = require("../../repositories/notes");
-const uploadImage = require("../../helpers/uploadFile");
+const uploadImage = require("../../helpers/uploadImage");
+const { newNoteSchema } = require("../../schemas/notes");
 
 const createNote = async (req, res, next) => {
   try {
     // const { id: userId } = req.auth;
 
     const userId = req.auth.id; //trae el req.auth(objeto del tokenInfo).id(el id q hay dentro del objeto tokenInfo), q es el id del usuario
+
+    await newNoteSchema.validateAsync(req.body);
 
     const { title, text, category, status } = req.body;
     const { image } = req.files;

@@ -3,15 +3,18 @@ const { v4: uuidv4 } = require("uuid");
 const { insertUser, selectUserByEmail } = require("../../repositories/users");
 const { generateError } = require("../../helpers");
 const { sendMail } = require("../../helpers");
+const { newUserSchema } = require("../../schemas/users");
 
 const registerUser = async (req, res, next) => {
   try {
+    await newUserSchema.validateAsync(req.body);
+
     const { email, password, name } = req.body;
 
     const userWithSameEmail = await selectUserByEmail(email);
 
     if (userWithSameEmail) {
-      generateError("Already exists an user with that email", 400);
+      throw generateError("Already exists an user with that email", 400);
     }
 
     const encryptedPassword = await bcrypt.hash(password, 10); //sino existe usuario con el mismo email, encripto la contraseña con el método.hash

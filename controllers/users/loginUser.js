@@ -2,9 +2,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { selectUserByEmail } = require("../../repositories/users");
 const { generateError } = require("../../helpers");
+const { loginUserSchema } = require("../../schemas/users");
 
 const loginUser = async (req, res, next) => {
   try {
+    await loginUserSchema.validateAsync(req.body);
+
     const { email, password } = req.body; //traemos email y password
 
     const user = await selectUserByEmail(email); //seleciono de la base de datos el usuario q tenga ese email

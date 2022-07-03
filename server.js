@@ -31,6 +31,7 @@ const {
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(fileUpload());
+app.use(express.static("./uploads"));
 
 // //Endpoints usuarios
 app.post("/users", registerUser);
